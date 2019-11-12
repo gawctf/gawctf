@@ -1,4 +1,4 @@
-web.py
+web.py==0.4
 Jinja2
 Werkzeug
 gunicorn
