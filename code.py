@@ -1,18 +1,14 @@
 import web
+from flask import Flask
 
 from web.template import ALLOWED_AST_NODES
 ALLOWED_AST_NODES.append('Constant')
 
-urls = (
-    '/(.*)', 'hello'
-)
-app = web.application(urls, globals())
+app = Flask(__name__)
 
-class hello:
-    def GET(self, name):
-        if not name:
-            name = input()
-        return 'Hello, ' + name + '!'
+@app.route("/")
+def code():
+    return "Hello World!"
 
 if __name__ == "__main__":
     app.run()
