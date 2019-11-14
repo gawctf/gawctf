@@ -11,7 +11,7 @@ app = web.application(urls, globals())
 class hello:
     def GET(self, name):
         if not name:
-            name = 'World'
+            name = input()
         return 'Hello, ' + name + '!'
 
 if __name__ == "__main__":
