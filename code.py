@@ -4,13 +4,15 @@ from web.template import ALLOWED_AST_NODES
 ALLOWED_AST_NODES.append('Constant')
 
 urls = (
-'/(.*)', 'index'
+    '/(.*)', 'hello'
 )
-class index:
-    def GET(self):
-        i = web.input(name=None)
-        return render.index(i.name)
+app = web.application(urls, globals())
+
+class hello:
+    def GET(self, name):
+        if not name:
+            name = 'World'
+        return 'Hello, ' + name + '!'
+
 if __name__ == "__main__":
-    app = web.application(urls, globals())
     app.run()
-render = web.template.render('templates/')
