@@ -11,7 +11,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def code():
-    sum = 1 / 0
     return "Hello World!"
 
 if __name__ == "__main__":
